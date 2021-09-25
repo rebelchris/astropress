@@ -1,0 +1,36 @@
+---
+import Header from '../components/Header.astro';
+import { getAllPagesWithSlugs, getPageBySlug } from '../lib/api';
+
+export async function getStaticPaths() {
+  const pagesWithSlugs = await getAllPagesWithSlugs();
+  return pagesWithSlugs.edges.map(({ node }) => {
+    return {
+      params: { slug: node.slug },
+    };
+  });
+}
+const { slug } = Astro.request.params;
+const page = await getPageBySlug(slug);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{page.title}</title>
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href={Astro.resolve('../styles/global.css')} />
+  </head>
+  <body>
+    <Header />
+    <div class="flex flex-col p-10">
+      <div class="mb-5 text-4xl font-bold">{page.title}</div>
+      <article class="prose lg:prose-xl">
+        {page.content}
+      </article>
+    </div>
+  </body>
+</html>

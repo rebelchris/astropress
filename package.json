@@ -1,0 +1,20 @@
+{
+  "name": "@example/starter",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "astro": "^0.20.7",
+    "prettier-plugin-astro": "github:snowpackjs/prettier-plugin-astro",
+    "tailwindcss": "^2.2.15"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.4.1",
+    "dotenv": "^10.0.0"
+  }
+}

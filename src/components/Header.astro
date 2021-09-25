@@ -1,0 +1,17 @@
+---
+import { getPrimaryMenu } from '../lib/api';
+
+const { menuItems } = await getPrimaryMenu();
+---
+
+<nav
+  class="flex flex-wrap items-center justify-between p-6 bg-blue-500 shadow-lg">
+  <a href="/" class="cursor-pointer p-4 ml-2 text-white">AstroPress</a>
+  <ul class="flex items-center justify-end flex-grow">
+    {menuItems.edges.map((item) => <li key={item.node.path}>
+        <a href={item.node.connectedNode.node.slug} class={`cursor-pointer p-4 ml-2 text-white`}>
+          {item.node.label}
+        </a>
+      </li>)}
+  </ul>
+</nav>

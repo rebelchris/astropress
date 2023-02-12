@@ -9,7 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^0.20.7",
+    "astro": "^2.0.10",
     "prettier-plugin-astro": "github:snowpackjs/prettier-plugin-astro",
     "tailwindcss": "^2.2.15"
   },
